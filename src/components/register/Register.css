@@ -1,0 +1,57 @@
+*{
+    color: white;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.input, button{
+    font-size: large;
+    width: 350px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #224957;
+}
+
+.forgot-pass{
+    width: 350px;
+    text-align: right;
+    color: #20df7f;
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    background-color: #20df7f
+}
+
+.container *{
+    margin: 15px 0;
+}
+
+.register{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+    color: #20df7f;
+}
+
+.register a {
+    text-decoration: none;
+    color: #20df7f;
+}
+
+.register-btn{
+    padding: 10px;
+    margin-left: 20px;
+    width: 150px;
+}
