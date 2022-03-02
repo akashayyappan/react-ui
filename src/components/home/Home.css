@@ -1,6 +1,30 @@
-.container{
+.container-home{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-home input{
+    width: 180px;
+}
+
+.progress-bar{
+    width: 35%;
+    height: 25px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.progress{
+    width: 2%;
+    height: 25px;
+    border-radius: 5px;
+    background-color: green;
+}
+
+.upload{
+    width: 200px;
 }
