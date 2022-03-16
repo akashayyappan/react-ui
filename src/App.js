@@ -29,7 +29,7 @@ class App extends React.Component {
           {this.state.isUserAuthenticated &&
             <div>
               <header>
-                <h3>Recommender System</h3>
+                <h3>Analysis System</h3>
                 <div className="navbar">
                   <ul className="nav">
                     <li><Link to={'/home'} className="nav-item"><FaHome /><span>Home</span></Link></li>

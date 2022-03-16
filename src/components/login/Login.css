@@ -29,7 +29,7 @@
 
 button{
     cursor: pointer;
-    background-color: #20df7f
+    background-color: #1A73E8
 }
 
 .container *{
@@ -47,7 +47,7 @@ button{
 
 .register a {
     text-decoration: none;
-    color: #20df7f;
+    color: #1A73E8
 }
 
 .register-btn{

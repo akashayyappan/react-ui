@@ -16,6 +16,7 @@ class Login extends React.Component {
     render() {
         return (
             <div className="container">
+                <h1>Viewer base analysis for OTT platform</h1>
                 <h1>Login</h1>
                 <input className="input" type="text" placeholder="Username" />
                 <input className="input" type="password" placeholder="Password" />
@@ -34,6 +35,7 @@ class Login extends React.Component {
 function WithNavigate(props) {
     const navigate = useNavigate();
     return <Login {...props} navigate={navigate}/>
+    //(...) will send a copy of props else reference pointer will be sent and all values will be changed
 }
 
 export default WithNavigate;
