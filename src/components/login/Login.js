@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router';
 class Login extends React.Component {
 
     componentWillMount(){
+        sessionStorage.setItem('auth',false);
         this.props.onLogin(false);
     }
 
     onLoginHandle = () => {
+        sessionStorage.setItem('auth',true);
         this.props.onLogin(true);
         this.props.navigate("/home");
     }

@@ -1,13 +1,12 @@
-.container{
+.container-dash{
     display: flex;
-    flex-direction: column;
+    margin-top: 30px;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    justify-content: space-around;
 }
 
-button{
+/* button{
     cursor: pointer;
     background-color: #20df7f
 }
@@ -19,5 +18,5 @@ button{
     border: none;
     border-radius: 10px;
     background-color: #224957;
-}
+} */
 

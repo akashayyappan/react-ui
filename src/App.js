@@ -13,8 +13,10 @@ import { FaHome, FaChartPie, FaPhotoVideo, FaSignOutAlt } from 'react-icons/fa';
 class App extends React.Component {
   constructor() {
     super();
+    let auth = sessionStorage.getItem('auth');
+    if(!auth) auth = false;
     this.state = {
-      isUserAuthenticated: false
+      isUserAuthenticated: auth
     }
   }
 
