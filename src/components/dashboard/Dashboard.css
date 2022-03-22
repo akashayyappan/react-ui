@@ -6,17 +6,22 @@
     justify-content: space-around;
 }
 
-/* button{
-    cursor: pointer;
-    background-color: #20df7f
-}
-
-button{
+.cus-button{
     font-size: large;
     width: 350px;
     padding: 15px;
     border: none;
     border-radius: 10px;
-    background-color: #224957;
-} */
+    background-color: #20df7f;
+}
+
+.cus-button{
+    cursor: pointer;
+    background-color: #20df7f;
+    font-size: large;
+    width: 350px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+}
 

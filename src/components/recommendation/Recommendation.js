@@ -14,7 +14,7 @@ class Recommendation extends React.Component {
         <div className="search">
           <TextField style={{ width: "400px" }} id="outlined-basic"
             variant="outlined" label="Search movie" />
-          <button>Get Recommendation</button>
+          <button className="cus-button">Get Recommendation</button>
         </div>
       </div >
       // <div class="container">

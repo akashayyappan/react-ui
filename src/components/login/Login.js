@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router';
 
 class Login extends React.Component {
 
-    componentWillMount(){
-        sessionStorage.setItem('auth',false);
+    componentWillMount() {
+        sessionStorage.setItem('auth', false);
         this.props.onLogin(false);
     }
 
     onLoginHandle = () => {
-        sessionStorage.setItem('auth',true);
+        sessionStorage.setItem('auth', true);
         this.props.onLogin(true);
         this.props.navigate("/home");
     }
@@ -23,11 +23,11 @@ class Login extends React.Component {
                 <input className="input" type="text" placeholder="Username" />
                 <input className="input" type="password" placeholder="Password" />
                 <a href="" className="forgot-pass">Forgot Password?</a>
-                <button onClick={this.onLoginHandle}>Login</button>
+                <button className="cus-button" onClick={this.onLoginHandle}>Login</button>
                 <div></div>
                 <div className="register">
                     <a href="">Not an existing user?</a>
-                    <button className="register-btn" onClick={() => this.props.navigate("/register")}>Register</button>
+                    <button className="register-btn cus-button" onClick={() => this.props.navigate("/register")}>Register</button>
                 </div>
             </div>
         );
@@ -36,7 +36,7 @@ class Login extends React.Component {
 
 function WithNavigate(props) {
     const navigate = useNavigate();
-    return <Login {...props} navigate={navigate}/>
+    return <Login {...props} navigate={navigate} />
     //(...) will send a copy of props else reference pointer will be sent and all values will be changed
 }
 

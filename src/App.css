@@ -20,6 +20,7 @@
 
 header h3{
   margin: 0;
+  color: white;
 }
 
 header .logout{
@@ -56,6 +57,7 @@ header .logout:hover{
   flex-direction: row;
   align-items: center;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .nav-item svg{

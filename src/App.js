@@ -1,26 +1,26 @@
+import 'antd/dist/antd.css';
+import { UploadOutlined } from '@ant-design/icons';
 import './App.css';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link, BrowserRouter, Routes, Route, Navigate, Outlet, useNavigate } from 'react-router-dom';
-import { Modal, Button } from 'antd';
+import { Modal, Button, Upload, Row, Col, Divider } from 'antd';
 import Home from './components/home/Home';
 import Dashboard from './components/dashboard/Dashboard';
 import Recommendation from './components/recommendation/Recommendation';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { FaHome, FaChartPie, FaPhotoVideo, FaSignOutAlt,FaFileUpload } from 'react-icons/fa';
-// import { Upload } from './components/upload/Upload';
+import { FaHome, FaChartPie, FaPhotoVideo, FaSignOutAlt, FaFileUpload } from 'react-icons/fa';
 
 class App extends React.Component {
   constructor() {
     super();
     let auth = sessionStorage.getItem('auth');
-    if(!auth) auth = false;
+    if (!auth) auth = false;
     this.state = {
       isUserAuthenticated: auth,
-      setIsModalVisible:false,
-      isModalVisible:false
+      setIsModalVisible: false,
+      isModalVisible: false
     }
   }
   // const [isModalVisible, setIsModalVisible]=useState(false);
@@ -36,6 +36,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="container-main">
+        <Modal title="Upload" visible={this.state.isModalVisible} onCancel={() => this.setState({ isModalVisible: false })}>
+          <Row>
+            <Col span={8}>DataSet</Col>
+            <Col span={16}><Upload maxCount={1}><Button icon={<UploadOutlined />}>Click to Upload</Button></Upload></Col>
+          </Row>
+          <Divider></Divider>
+          <Row>
+            <Col span={8}>Matrix</Col>
+            <Col span={16}><Upload maxCount={1}><Button icon={<UploadOutlined />}>Click to Upload</Button></Upload></Col>
+          </Row>
+        </Modal>
         <BrowserRouter>
           {this.state.isUserAuthenticated &&
             <div>
@@ -46,18 +57,11 @@ class App extends React.Component {
                     <li><Link to={'/home'} className="nav-item"><FaHome /><span>Home</span></Link></li>
                     <li><Link to={'/dashboard'} className="nav-item"><FaChartPie /><span>Dashboard</span></Link></li>
                     <li><Link to={'/rec'} className="nav-item"><FaPhotoVideo /><span>Recommendation</span></Link></li>
-                    <li>
-                      {/* <Link to={'/rec'} className="nav-item"><FaFileUpload /><span>Upload</span></Link> */}
-                    <FaFileUpload /><span className="nav-item" onClick={()=>this.setState({setIsModalVisible: !this.state.setIsModalVisible})}>
-                    Upload</span>
-                    <Modal title="Basic Modal" visible={this.state.setIsModalVisible} onOk={this.state.setIsModalVisible} onCancel={this.state.setIsModalVisible}>
-                    <p>Dataset</p><input type="file" />
-                    <p>Matrix</p><input type="file" />
-                    </Modal>
-                    </li>
-                    {/* <button className="nav-item"  onClick={()=>this.setState({setIsModalVisible: !this.state.setIsModalVisible})}>
-                    <FaFileUpload /><span>Upload</span>
-                    </button> */}
+                    <li><span className="nav-item" onClick={() => this.setState({ isModalVisible: true })}>
+                      <FaFileUpload />
+                      <span>Upload</span>
+                    </span></li>
+
                   </ul>
                 </div>
                 <Link to={'/login'} className="logout"><FaSignOutAlt /><span>Logout</span></Link>
@@ -73,7 +77,6 @@ class App extends React.Component {
             <Route path='/register' element={<Register />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/rec' element={<Recommendation />} />
-            {/* <Route path='/upload' element={<Upload />} /> */}
           </Routes>
         </BrowserRouter>
         <Outlet />

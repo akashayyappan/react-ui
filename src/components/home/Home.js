@@ -6,17 +6,17 @@ class Home extends React.Component {
     onUploadHandle = () => {
         this.props.navigate("/dashboard");
     }
-    render(){
+    render() {
         return (
             <div className="container-home">
-                <input type="file" />
-                <br/><br/>
+                <input style={{ color: 'white' }} type="file" />
+                <br /><br />
                 <div className="progress-bar">
                     <div className="progress"></div>
                 </div>
-                <span>0% Completed</span>
-                <br/><br/><br/>
-                <button className="upload"  onClick={this.onUploadHandle}>View Dashboard</button>
+                <span style={{ color: 'white' }}>0% Completed</span>
+                <br /><br /><br />
+                <button className="cus-button upload" onClick={this.onUploadHandle}>View Dashboard</button>
             </div>
         );
     }
@@ -24,7 +24,7 @@ class Home extends React.Component {
 
 function WithNavigate(props) {
     const navigate = useNavigate();
-    return <Home {...props} navigate={navigate}/>
+    return <Home {...props} navigate={navigate} />
     //(...) will send a copy of props else reference pointer will be sent and all values will be changed
 }
 

@@ -1,4 +1,4 @@
-*{
+h1{
     color: white;
 }
 
@@ -11,25 +11,30 @@
     height: 100vh;
 }
 
-.input, button{
+.input, .cus-button{
     font-size: large;
     width: 350px;
     padding: 15px;
     border: none;
     border-radius: 10px;
+}
+
+
+.input{
     background-color: #224957;
 }
+
+.cus-button{
+    color: white;
+    background-color: #20df7f;
+}
+
 
 .forgot-pass{
     width: 350px;
     text-align: right;
     color: #20df7f;
     text-decoration: none;
-}
-
-button{
-    cursor: pointer;
-    background-color: #20df7f
 }
 
 .container *{

@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+h2{
+    color: white;
+}
+
 .title{
     display: flex;
     flex-direction: row;
@@ -32,4 +36,13 @@
 .icon{
     width: 30%;
     height: 30%;
+}
+
+.cus-button{
+    font-size: large;
+    width: 350px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #224957;
 }
