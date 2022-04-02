@@ -72,6 +72,7 @@ header .logout:hover{
 
 .nav-item:hover{
   background-color: #5216c2;
+  color: white;
 }
 
 .nav-item:hover span{

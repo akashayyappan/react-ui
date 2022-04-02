@@ -4,6 +4,24 @@ import TextField from "@mui/material/TextField";
 import './Recommendation.css';
 
 class Recommendation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data :""
+    }
+  }
+  submit = () => {
+    let data=this.state.data
+    fetch('http://localhost:5000/movie', {
+            method: 'POST',
+            body: JSON.stringify({data}),
+            headers: { 'Content-Type': 'application/json' },
+            mode: 'cors'
+        }).then(res => res.json())
+        .then(json => {
+            this.setState({data: json.data})
+  })
+}
   render() {
     return (
       <div className="container-search">
@@ -13,8 +31,10 @@ class Recommendation extends React.Component {
         </div>
         <div className="search">
           <TextField style={{ width: "400px" }} id="outlined-basic"
-            variant="outlined" label="Search movie" />
-          <button className="cus-button">Get Recommendation</button>
+            variant="outlined" 
+            onChange={(e) => { this.setState({ data: e.target.value }) }}
+            label="Search movie" />
+          <button className="cus-button" onClick={() => { this.submit() }}>Get Recommendation</button>
         </div>
       </div >
       // <div class="container">

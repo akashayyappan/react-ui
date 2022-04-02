@@ -9,9 +9,20 @@
 
 .container-home input{
     width: 180px;
+    border-collapse: collapse;
 }
 
-.progress-bar{
+table, th, td {
+    border: 1px solid;
+  }
+
+  th, td {
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    padding-left: 30px;
+    padding-right: 40px;
+  }
+/* .progress-bar{
     width: 35%;
     height: 25px;
     background-color: white;
@@ -27,4 +38,4 @@
 
 .upload{
     width: 200px;
-}
+} */
