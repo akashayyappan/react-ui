@@ -46,3 +46,8 @@ h2{
     border-radius: 10px;
     background-color: #224957;
 }
+
+.movies-list{
+    color: white;
+    margin-top: 40px;
+}

@@ -7,21 +7,26 @@ class Recommendation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data :""
+      data: '',
+      movies: []
     }
   }
   submit = () => {
-    let data=this.state.data
+    let data = this.state.data
     fetch('http://localhost:5000/movie', {
-            method: 'POST',
-            body: JSON.stringify({data}),
-            headers: { 'Content-Type': 'application/json' },
-            mode: 'cors'
-        }).then(res => res.json())
-        .then(json => {
-            this.setState({data: json.data})
-  })
-}
+      method: 'POST',
+      body: JSON.stringify({ data }),
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'cors'
+    }).then(res => res.json())
+      .then(json => {
+        this.setState({ movies: json.data })
+        console.log(this.state.movies);
+        console.log(json);
+      }).catch(e => {
+        console.log(e);
+      })
+  }
   render() {
     return (
       <div className="container-search">
@@ -31,11 +36,18 @@ class Recommendation extends React.Component {
         </div>
         <div className="search">
           <TextField style={{ width: "400px" }} id="outlined-basic"
-            variant="outlined" 
+            variant="outlined"
             onChange={(e) => { this.setState({ data: e.target.value }) }}
             label="Search movie" />
           <button className="cus-button" onClick={() => { this.submit() }}>Get Recommendation</button>
         </div>
+        <div className='movies-list'>
+          <ul>
+            {this.state.movies.map(e => (
+              < li > { e }</li>
+            ))}
+          </ul>
+      </div>
       </div >
       // <div class="container">
       //   <div class="row">
