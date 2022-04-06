@@ -1,9 +1,24 @@
 .container-dash{
     display: flex;
     margin-top: 30px;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+.dash-btns{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dash-chart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cus-button{

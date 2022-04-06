@@ -40,12 +40,13 @@ class Dashboard extends React.Component {
     console.log(this.state)
     return (
       <div className="container-dash">
-        <button className="cus-button">Viewer chart</button>
-        <button className="cus-button">Cluster chart</button>
-        <button className="cus-button">Viewership chart</button>
-        <br></br>
-        <center>
-          <h3>Overall Genre chart</h3>
+        <div className='dash-btns'>
+          <button className="cus-button">Viewer chart</button>
+          <button className="cus-button">Cluster chart</button>
+          <button className="cus-button">Viewership chart</button>
+        </div>
+        <div className='dash-chart'>
+          <h3 style={{ color: "aqua" }}>Overall Genre chart</h3>
           <div style={{ maxWidth: "650px" }}>
             <Bar
               data={{
@@ -53,20 +54,31 @@ class Dashboard extends React.Component {
                 datasets: [
                   {
                     data: this.state.myData,
-                    label: 'Genres',
-                    borderWidth: 0.5
+                    label: 'Total count',
+                    backgroundColor: "aqua",
+                    borderColor: "aqua",
+                    borderWidth: 0.5,
                   },
                 ],
               }}
+              width='900px'
               height={400}
-              const options={{
+              options={{
                 maintainAspectRatio: false,
                 scales: {
+                  xAxes:
+                  {
+                    title: { text: 'Genres', display: true, color: 'white' },
+                    ticks: {
+                      color: 'white'
+                    },
+                  },
                   yAxes:
                   {
-                    title:{text:'Count',display:true},
+                    title: { text: 'Count', display: true, color: 'white' },
                     ticks: {
                       beginAtZero: true,
+                      color: 'white'
                     },
                   },
                 },
@@ -77,10 +89,9 @@ class Dashboard extends React.Component {
                 },
               }}
             >
-
             </Bar>
           </div>
-        </center>
+        </div>
       </div>
     );
   }
