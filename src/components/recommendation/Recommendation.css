@@ -51,3 +51,8 @@ h2{
     color: white;
     margin-top: 40px;
 }
+
+.user-list{
+    color: white;
+    justify-content: flex-end;
+}

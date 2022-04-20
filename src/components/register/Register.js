@@ -50,7 +50,7 @@ class Register extends React.Component {
     // }
     render() {
         return (
-            <div className="container">
+            <div className="container-cus">
                 {/* <form className="container" action="http://43.90.35.23:5000/register" method="post"> */}
                 <h1>Register</h1>
                 <h3 style={{color:'red'}}>{this.state.errMsg}</h3>

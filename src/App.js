@@ -32,24 +32,30 @@ class App extends React.Component {
         status: 'done',
         url: 'C:/Users/7000027560/Downloads/ml-1m/sample.xlsx',
       },
+      {
+        uid:'-2',
+        name:'sparse.xlsx',
+        status:'done',
+        url: 'C:/Users/7000027560/Downloads/sparse.xlsx'
+      },
     ],
+    // file:[
+      
+    // ],
   };
   handleChange = info => {
     let fileList = [...info.fileList];
-    // Limit the number of uploaded files Only to show two recent uploaded files, and old ones will be replaced by the new
-    fileList = fileList.slice(-2);
+    fileList = fileList.slice(-2); // Limit the number of uploaded files Only to show two recent uploaded files, and old ones will be replaced by the new
     // Read from response and show file link
     fileList = fileList.map(file => {
       if (file.response) {
-        // Component will show file.url as link
-        file.url = file.response.url;
+        file.url = file.response.url;  // Component will show file.url as link
       }
       return file;
     });
-
     this.setState({ fileList });
   };
-
+  
   onLoginHandle = value => {
     this.setState({ isUserAuthenticated: value })
   }
@@ -59,6 +65,10 @@ class App extends React.Component {
       action: 'http://localhost:5000/upload',
       onChange: this.handleChange,
       // multiple: true,
+    };
+    this.upload={
+      action: 'http://localhost:5000/matrix_upload',
+      onChange: this.handleChange
     };
     return (
       <div className="container-main">
@@ -70,7 +80,7 @@ class App extends React.Component {
           <Divider></Divider>
           <Row>
             <Col span={8}>Matrix</Col>
-            <Col span={16}><Upload maxCount={1}><Button icon={<UploadOutlined />}>Click to Upload</Button></Upload></Col>
+            <Col span={16}><Upload {...this.upload} maxCount={1}><Button icon={<UploadOutlined />}>Click to Upload</Button></Upload></Col>
           </Row>
         </Modal>
         <BrowserRouter>

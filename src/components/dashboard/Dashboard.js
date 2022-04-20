@@ -1,8 +1,10 @@
 import './Dashboard.css';
 import React from 'react';
-import { Bar } from "react-chartjs-2";
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+import BarChart from '../BarChart';
+import ViewerChart from '../ViewerChart';
+import OverallChart from '../OverallChart';
+import Cluster from '../Cluster';
+
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -10,7 +12,9 @@ class Dashboard extends React.Component {
     this.state = {
       data: '',
       labels: [],
-      myData: []
+      myData: [],
+      view: '',
+      // overallChart: false
     }
   }
   fetchChart() {
@@ -24,8 +28,8 @@ class Dashboard extends React.Component {
         // console.log(response)
       })
       .then((json) => {
-        console.log(json)
-        this.setState({ labels: json.labels, myData: json.values })
+        // console.log(json)
+        this.setState({ labels: json.labels, myData: json.values})
         // console.log(this.state.labels)
 
       }).catch(e => {
@@ -36,61 +40,38 @@ class Dashboard extends React.Component {
     this.fetchChart();
   }
 
+  handleoverall = () => {
+    this.setState({ view: 'overallchart' });
+    
+  }
+
+  onViewChartClick = () => {
+    this.setState({ view: 'viewerchart' });
+  }
+
+  onClusterClick = () => {
+    this.setState({ view: 'clusterchart' });
+  }
+
   render() {
     console.log(this.state)
     return (
       <div className="container-dash">
         <div className='dash-btns'>
-          <button className="cus-button">Viewer chart</button>
-          <button className="cus-button">Cluster chart</button>
-          <button className="cus-button">Viewership chart</button>
+          <button className="cus-button" onClick={this.onViewChartClick} style={{ padding: '10px 24px', width: '200px' }}>Viewer chart</button>
+          <button className="cus-button" onClick={this.onClusterClick} style={{ padding: '10px 24px', width: '200px' }}>User Cluster</button>
+          <button className="cus-button" onClick={this.handleoverall} style={{ padding: '10px 24px', width: '200px' }}>Viewership chart</button>
         </div>
         <div className='dash-chart'>
-          <h3 style={{ color: "aqua" }}>Overall Genre chart</h3>
-          <div style={{ maxWidth: "650px" }}>
-            <Bar
-              data={{
-                labels: this.state.labels,
-                datasets: [
-                  {
-                    data: this.state.myData,
-                    label: 'Total count',
-                    backgroundColor: "aqua",
-                    borderColor: "aqua",
-                    borderWidth: 0.5,
-                  },
-                ],
-              }}
-              width='900px'
-              height={400}
-              options={{
-                maintainAspectRatio: false,
-                scales: {
-                  xAxes:
-                  {
-                    title: { text: 'Genres', display: true, color: 'white' },
-                    ticks: {
-                      color: 'white'
-                    },
-                  },
-                  yAxes:
-                  {
-                    title: { text: 'Count', display: true, color: 'white' },
-                    ticks: {
-                      beginAtZero: true,
-                      color: 'white'
-                    },
-                  },
-                },
-                legend: {
-                  labels: {
-                    fontSize: 15,
-                  },
-                },
-              }}
-            >
-            </Bar>
-          </div>
+          {
+            this.state.view == 'clusterchart' ?
+              <Cluster></Cluster>
+              : this.state.view == 'viewerchart' ?
+                <ViewerChart></ViewerChart>
+                : this.state.view == 'overallchart' ?
+                  <OverallChart></OverallChart>
+                  : <BarChart labels={this.state.labels} myData={this.state.myData}></BarChart>
+          }
         </div>
       </div>
     );

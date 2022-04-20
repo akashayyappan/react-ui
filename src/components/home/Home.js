@@ -64,13 +64,3 @@ function WithNavigate(props) {
 }
 
 export default WithNavigate;
-// export default Home;
-
-
-// {myData.map((item) => (
-//     <tr>
-//       {item.map((d) => (
-//         <td>{d}</td>
-//       ))}
-//     </tr>
-//   ))}

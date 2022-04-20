@@ -45,7 +45,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container-cus">
                 <h1>Viewer base analysis for OTT platform</h1>
                 <h1>Login</h1>
                 <h3 style={{color:'red'}}>{this.state.errMsg}</h3>
